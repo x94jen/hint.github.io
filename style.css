@@ -22,7 +22,7 @@ body {
 }
 
 .section-title {
-  height: 80px;  /* 同一高度 */
+  height: 70px;  /* 同一高度 */
   width: auto;   /* 自動寬度，保持比例 */
   display: block;
 }
@@ -72,7 +72,7 @@ body {
 }
 
 .zone-image {
-  width: 100px;
+  width: 80px;
   height: auto;
   display: block;
 }
