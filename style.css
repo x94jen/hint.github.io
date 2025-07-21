@@ -1,0 +1,256 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: sans-serif;
+  background: url('img/back.png') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: column; /* 由上往下排列 */
+  align-items: center;    /* 水平置中 */
+  gap: 30px;
+}
+
+.gacha-container {
+  flex: 1 1 400px;
+  max-width: 400px;
+  text-align: center;
+  position: relative;  
+}
+
+.section-title {
+  height: 80px;  /* 同一高度 */
+  width: auto;   /* 自動寬度，保持比例 */
+  display: block;
+}
+
+
+/* 按鈕列 */
+.zone-buttons-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.zone-buttons {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  
+}
+
+.zone-buttons button {
+  padding: 10px 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  background: #8AA846;
+  color: white;
+  cursor: pointer;
+}
+
+.zone-buttons button:hover {
+  background: #DED494;
+}
+
+.zone-header {
+  display: flex;
+  align-items: center;  /* 垂直置中 */
+  gap: 12px;            /* 標題與圖片之間的間距 */
+  margin-bottom: 20px;
+  width: 50px;
+}
+
+.zone-image {
+  width: 100px;
+  height: auto;
+  display: block;
+}
+
+
+/* 主要區塊並排 */
+.content-wrapper {
+  display: flex;
+  gap: 30px;
+  width: 100%;
+  max-width: 900px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* 扭蛋機 */
+.main-content {
+  flex: 1 1 400px;
+  max-width: 400px;
+  text-align: center;
+}
+
+.machine-image {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  margin-top: 10px;
+}
+
+#egg {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+  width: 100px;
+  transition: transform 0.6s ease, top 1s ease;
+  z-index: 10;
+}
+
+#egg.drop {
+  top: 300px;
+  transform: translateX(-50%) scale(1);
+}
+
+.btn-area {
+  margin-top: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#cooldown {
+  font-size: 16px;
+  color: #666;
+  position: static;
+  margin-top: 5px;
+}
+
+button#gachaBtn {
+  padding: 12px 24px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  background: #E38B7B;
+  color: white;
+  cursor: pointer;
+}
+
+button#gachaBtn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+#resultText {
+  margin-top: 20px;
+  font-size: 18px;
+  text-align: center;
+  min-height: 30px;
+  color: #333;
+}
+
+/* 歷史紀錄 */
+.history-container {
+  flex: 1 1 320px;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.history {
+  width: 100%;
+  border: 2px solid #ccc;
+  padding: 15px;
+  border-radius: 8px;
+
+  background: #ffffff;
+  border: 2px solid #DED494;
+
+  height: 300px;
+  overflow-y: auto;
+  font-size: 16px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.history h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.history ul {
+  padding-left: 20px;
+  list-style-type: disc;
+  margin: 0;
+}
+
+#resetBtn {
+  background-color: #ccc;
+  color: #333;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 0;
+}
+
+#resetBtn:hover {
+  background-color: #bbb;
+}
+
+.hint-box {
+  margin: 0px auto 0;
+  padding-top: 10px;
+  padding-bottom: -10px;
+  font-size: 16px;
+  color: #333;
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.hint-box.show {
+  opacity: 1;
+  transform: scale(1);
+}
+.hint-box.hidden {
+  display: none;
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+/* 手機響應式：改為上下排列 */
+@media (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .main-content,
+  .history-container {
+    max-width: 90%;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+/* 小螢幕 */
+@media (max-width: 600px) {
+  .zone-buttons-wrapper {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+}
+
