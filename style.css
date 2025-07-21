@@ -22,9 +22,11 @@ body {
 }
 
 .section-title {
-  height: 80px;  /* 同一高度 */
+  height: 60px;  /* 同一高度 */
   width: auto;   /* 自動寬度，保持比例 */
   display: block;
+  align-items: center;  
+  
 }
 
 
@@ -65,14 +67,15 @@ body {
 
 .zone-header {
   display: flex;
+  justify-content: center; /* 水平置中 */
   align-items: center;  /* 垂直置中 */
   gap: 12px;            /* 標題與圖片之間的間距 */
-  margin-bottom: 20px;
-  width: 50px;
+  margin-bottom: 10px;
+  width: 100%;
 }
 
 .zone-image {
-  width: 100px;
+  width: 80px;
   height: auto;
   display: block;
 }
@@ -97,7 +100,7 @@ body {
 
 .machine-image {
   width: 100%;
-  max-width: 200px;
+  max-width: 175px;
   height: auto;
   margin-top: 10px;
 }
