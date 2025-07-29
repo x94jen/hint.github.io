@@ -120,7 +120,7 @@ function spinGacha() {
   }, 2000);
 
   localStorage.setItem('cooldownStartTime', Date.now().toString());
-  startCooldown(10);
+  startCooldown(60);
 }
 
 function startCooldown(seconds) {
