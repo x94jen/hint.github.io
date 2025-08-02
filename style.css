@@ -25,6 +25,8 @@ body {
   height: 70px;  /* 同一高度 */
   width: auto;   /* 自動寬度，保持比例 */
   display: block;
+ 
+  
 }
 
 
@@ -67,16 +69,19 @@ body {
 
 .zone-header {
   display: flex;
-  align-items: center;  /* 垂直置中 */
-  gap: 12px;            /* 標題與圖片之間的間距 */
+  align-items: center;
+  justify-content: center; /* 加這行可讓內容水平置中 */
+  gap: 12px;
   margin-bottom: 20px;
-  width: 50px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .zone-image {
   width: 80px;
   height: auto;
   display: block;
+
 }
 
 
