@@ -22,7 +22,7 @@
       <button onclick="selectZone('蘇鉄')">蘇鉄</button>
       <button onclick="selectZone('鳶尾')">鳶尾</button>
     </div>
-   
+     <div id="resultText" class="result-text"></div>
   </div>
 </div>
   
@@ -30,14 +30,22 @@
   <div class="content-wrapper">
     <div class="main-content">
       <div class="gacha-container">
-        <img src="img/machine.png" class="machine-image" alt="扭蛋機" />
+      
+        <!-- 靜態圖：初始顯示 -->
+<img id="machineStatic" src="img/machine.png" class="machine-image" alt="扭蛋機 靜態" />
+
+<!-- 動畫圖：預設隱藏 -->
+<img id="machineGif" src="img/machine-animation.gif" class="machine-image hidden" alt="扭蛋機 動畫" />
+
+
+
         <img id="egg" src="img/egg.png" alt="扭蛋" />
-        <div id="resultText" class="result-text"></div>
+         <div id="hintBox" class="hint-box hidden"></div>
         <div class="btn-area">
           <button id="gachaBtn" onclick="spinGacha()" disabled>ガチャポンを回せ！</button>
           <div id="cooldown"></div>
         </div>
-        <div id="hintBox" class="hint-box hidden"></div>
+       
       </div>
     </div>
 

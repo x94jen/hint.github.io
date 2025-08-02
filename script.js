@@ -29,7 +29,7 @@ const zoneMessages = {
   蘇鉄: [
     "蘇鉄:太い幹に羽毛のような深绿色の葉が汰を弥いて生え、優雅な姿勢をしている",
     "蘇鉄:茶色の枝には鼓のような跡がある",
-    "蘇鉄:号館前のグリーンベルトにいる"
+    "蘇鉄:5号館前のグリーンベルトにいる"
   ],
   鳶尾: [
     "鳶尾:低い地装植物である",
@@ -72,7 +72,7 @@ if (savedStart) {
 function selectZone(zone) {
   selectedZone = zone;
   gachaBtn.disabled = false;
-  resultText.textContent = ` ${zone}を選びました。ガチャを回せます！`;
+  resultText.textContent = ` ${zone}を選びました。\nガチャを回せます！`;
 }
 
 function getOneRandomMessage(zone) {
@@ -86,6 +86,16 @@ function getOneRandomMessage(zone) {
 
 function spinGacha() {
   if (isCooldown || !selectedZone) return;
+
+  // 扭蛋機圖片切換：靜態 → 動畫
+  document.getElementById("machineStatic").classList.add("hidden");
+  document.getElementById("machineGif").classList.remove("hidden");
+
+  // 3 秒後切回靜態圖
+  setTimeout(() => {
+    document.getElementById("machineGif").classList.add("hidden");
+    document.getElementById("machineStatic").classList.remove("hidden");
+  }, 3000);
 
   const message = getOneRandomMessage(selectedZone);
   if (!message) {
